@@ -1,206 +1,896 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>P3471, Assessment 2: Creative Project</title>
-<!--Google font: Coda and Syncopate-->>
+<title>Etchings on a Wall – P3469 Journalism Dissertation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Coda:wght@400;800&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lacquer&family=Sedgwick+Ave&family=Sedgwick+Ave+Display&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 <style>
-        html {
-        scroll-behavior: smooth;
-    }
 
-    body {
-        font-family: 'Coda', cursive;
-        margin: 0;
-        padding: 0;
-        background-color: black;
-    }
+  /* ── Reset & base ── */
+  *, *::before, *::after { box-sizing: border-box; }
 
-    p {
-        color: white;
-        margin: 30px 60px;
-        font-size: 20px;
-        text-align: center;
-    }
+  html { scroll-behavior: smooth; }
 
-    h1{
-        font-size: 50px;
-        color: white;
-        margin: 60px 60px;
-        text-align: center;
-        font-family: "Syncopate", sans-serif;
-    }
+  body {
+    font-family: "IBM Plex Serif", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+  }
 
-    .lingo-img {
+  /*--images--*/
+
+ figcaption {
+  color: rgba(255,255,255,0.55);
+    font-size: 20px;
+    text-align: center;
+    margin: 8px 60px 60px 60px;
+    font-family: "Sedgwick Ave", cursive;
+    font-style: italic;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 120px auto 10px auto; /* centers images, optional */
+}
+
+/* Optional: set a maximum height for large portrait images */
+img {
+  max-height: 500px;  /* adjust as needed, or remove if not desired */
+}
+
+  /* ── Typography ── */
+  p {
+    color: #fff;
+    margin: 30px 120px;
+    font-size: 20px;
+    line-height: 1.75;
+    text-align: left;
+    max-width: 820px;
+  }
+
+  h1 {
+    font-size: 50px;
+    color: #fff;
+    margin: 60px 120px 20px;
+    text-align: left;
+    font-family: "Sedgwick Ave Display", cursive;
+  }
+
+  h3 {
+    font-size: 46px;
+    color: #fff;
+    margin: 80px 120px 10px;
+    text-align: left;
+    font-family: "Sedgwick Ave Display", cursive;
+    border-left: 5px solid #e8c84a;
+    padding-left: 20px;
+  }
+
+  /* ── Header ── */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #000;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header p { margin: 0; font-size: 10px; }
+  header h5 {
+    color: #fff;
+    font-size: 10px;
+    margin: 0;
+    font-family: "Sedgwick Ave", cursive;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .header-left nav { display: flex; gap: 20px; }
+  .header-left nav a {
+    color: #fff;
+    font-size: 10px;
+    text-decoration: none;
+    font-family: "Sedgwick Ave", cursive;
+  }
+  .header-left nav a:hover { text-decoration: underline; }
+  .header-center img { height: 50px; }
+  .header-right {
+    white-space: nowrap;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background-image: url('header-background.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+  }
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(60px, 10vw, 120px);
+    text-align: center;
+    margin: 0 30px 20px;
+    font-family: "Lacquer", system-ui;
+    border: none;
+    padding: 0;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.8);
+  }
+  .hero h2 {
+    color: rgba(255,255,255,0.85);
+    font-size: clamp(16px, 2.5vw, 28px);
+    text-align: center;
+    margin: 0 30px 40px;
+    font-family: "Sedgwick Ave", cursive;
+    font-weight: 300;
+    font-style: italic;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+  }
+ .hero-scroll-arrow img{
+    height: 50px;
+
+ }
+ /* table of contents */
+  #toc {
+    margin: 30px 120px;
+  }
+  #toc p {
+    font-family: "Sedgwick Ave", cursive;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #e8c84a;
+    margin: 0 0 1rem 0;
+    padding: 0;
+  }
+  #toc ol {
+    list-style: none;
+    counter-reset: toc-counter;
+  }
+  #toc li {
+    counter-increment: toc-counter;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-family: "Sedgwick Ave Display", cursive;
+    font-size: 20px;
+  }
+  #toc li::before {
+    content: counter(toc-counter) ".";
+    font-family: "Sedgwick Ave", cursive;
+    color: #e8c84a;
+    font-weight: bold;
+    min-width: 28px;
+  }
+  #toc a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  #toc a:hover {
+    color: #e8c84a;
+    border-bottom-color: #e8c84a;
+  }
+  @keyframes bobble {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  /* ── Horizontal rule / section divider ── */
+  hr {
+    margin: 80px auto;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    width: calc(100% - 120px);
+  }
+
+  /* ── Pull-quote ── */
+  blockquote {
+    border-left: 4px solid #e8c84a;
+    margin: 40px 120px;
+    padding: 10px 30px;
+    font-size: 24px;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.6;
+    max-width: 720px;
+  }
+
+  /* ── The Lingo section ── */
+  .lingo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 40px 60px;
+    max-width: 900px;
+  }
+  .lingo-card {
+    border: 1px solid rgba(232, 200, 74, 0.4);
+    border-top: 3px solid #e8c84a;
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.03);
+  }
+  .lingo-card h4 {
+    color: #e8c84a;
+    font-family: "Sedgwick Ave Display", cursive;
+    font-size: 22px;
+    margin: 0 0 10px;
+  }
+  .lingo-card p {
+    margin: 0;
+    font-size: 16px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.6;
+  }
+  .lingo-card p sup { font-size: 10px; }
+
+  /* ── Image captions ── */
+  .lingo-img {
     width: 400px;
+    max-width: 100%;
     display: block;
     margin: 0 auto;
-    }
-    figcaption {
-    color: white;
+  }
+
+  /* ── Footnote superscripts ── */
+  .fn {
+    font-size: 0.65em;
+    vertical-align: super;
+    line-height: 0;
+    color: #e8c84a;
+    text-decoration: none;
+    font-family: "Syncopate", sans-serif;
+    margin-left: 2px;
+  }
+  .fn:hover { text-decoration: underline; }
+
+  /* ── References section ── */
+  #references {
+    margin: 80px 0 0;
+    padding: 60px 60px 80px;
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  #references h3 {
+    margin-left: 0;
+    margin-bottom: 40px;
+    font-size: 36px;
+  }
+  .ref-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 860px;
+  }
+  .ref-list li {
+    display: flex;
+    gap: 16px;
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    scroll-margin-top: 80px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-num {
+    color: #e8c84a;
+    font-family: "Syncopate", sans-serif;
+    font-size: 12px;
+    min-width: 28px;
+    padding-top: 2px;
+    font-weight: 700;
+  }
+  .ref-list a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .ref-list a:hover { color: #e8c84a; text-decoration: underline; }
+  .back-link {
+    color: #e8c84a !important;
     font-size: 13px;
-    text-align: center;
-    margin: 10px 300px;
-    font-family: 'Syncopate', sans-serif;
-    font-style: italic;
-    opacity: 0.6;
-    }
+    margin-left: 6px;
+    text-decoration: none !important;
+    flex-shrink: 0;
+  }
+  .back-link:hover { text-decoration: underline !important; }
 
-    hr {
-        margin: 90px 200px;
-        border-top: 2px solid white;
-    }
+  /* ── Intro byline strip ── */
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 60px 40px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  .byline p {
+    margin: 0;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-family: "Syncopate", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
 
-    header p {
-        color: white;
-        margin: 0;
-        font-size: 8px;
-        font-family: "Syncopate", sans-serif;
-    }
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 0;
-        background-color: black;
-        margin: 30px;
-        font-family: "Syncopate", sans-serif;
-    }
-    header h5 {
-        color: white;
-        font-size: 10px;
-        margin: 0;
-    }
-    .header-left nav {
-        display: flex;
-        gap: 20px;
-    }
-    .header-left nav a {
-        color: white;
-        font-size: 10px;
-        text-decoration: none;
-        font-family: "Syncopate", sans-serif;
-    }
-    .header-left nav a:hover {
-        text-decoration: underline;
-    }
+  /* Scroll-margin for section heading anchors */
+  h3[id] { scroll-margin-top: 80px; }
 
-    .header-center img {
-        height: 60px;
-    }
-    .header-right {
-        white-space: nowrap;
-        text-align: right;
-        min-width: fit-content;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .header-right a {
-        color: white;
-        font-size: 10px;
-        text-decoration: none;
-    }
-    .header-right a:hover {
-        text-decoration: underline;
-    }
-    header h6 {
-        color: white;
-        font-size: 20px;
-        margin: 0 30px;
-    }
+  /* ── Responsive ── */
+  @media (max-width: 680px) {
+    p, blockquote, .byline, figcaption, .lingo-grid { margin-left: 20px; margin-right: 20px; }
+    h1, h3 { margin-left: 20px; margin-right: 20px; font-size: 32px; }
+    #references { padding: 40px 20px 60px; }
+    .lingo-grid { margin: 20px; }
+    hr { width: calc(100% - 40px); }
+  }
 
-    .hero {
-        background-image: url('header-background.png');
-        background-size: cover;
-        background-position: center;
-        width: 100%;
-        height: 100vh;
-        padding-top: 100px;
-        font-family: "Syncopate", sans-serif;
-    }
-    .hero h1 {
-        color: white;
-        font-size: 50px;
-        text-align: center;
-        margin: 0 30px;;
-        padding: 200px 0 30px 0;
-    }
-    .hero h2 {
-        color: white;
-        font-size: 25px;
-        text-align: center;
-        margin: 0 30px;
-        padding: 0 0 30px 0;
-    }
-    .hero img {
-        height: 50px;
-        display: block;
-        margin: 0 auto;
-    }
-
-    </style>
+</style>
 </head>
 
-
 <body>
-    <header>
-    <div class="header-left">
-        <nav>
-            <h5>P3469: Journalism Dissertation Practical Project</h5>
-        </nav>
-    </div>
-    <div class="header-center">
-        <a href="https://www.strath.ac.uk/">
-            <img src="university-of-strathclyde-logo.png" alt="University of Strathclyde logo">
-        </a>
-    </div>
-    <div class="header-right">
-        <h6><a href="https://nidsontheweb.github.io/dissertation-sources/">Sources</a></h6>
-        <p>Ref. no.: 202208970</p>
-    </div>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-left">
+    <nav>
+      <h5>P3469: Journalism Dissertation Practical Project</h5>
+    </nav>
+  </div>
+  <div class="header-center">
+    <a href="https://www.strath.ac.uk/">
+      <img src="university-of-strathclyde-logo.png" alt="University of Strathclyde logo">
+    </a>
+  </div>
+  <div class="header-right">
+    <h5>Ref. no.: 202208970</h5>
+  </div>
 </header>
 
+<!-- ── HERO ── -->
 <div class="hero">
-    <h1>Etchings on the wall</h1>
-    <h2>How Glasgow graffiti fits within the global culture and what it has done for the city itself.</h2>
+  <h1>Etchings on a Wall</h1>
+  <h2>The 'then' and 'now' of Glasgow's burgeoning arts scene</h2>
+  <a href="#toc" class="hero-scroll-arrow" aria-label="Scroll down"><img src="down-arrow.png"></a>
 </div>
 
-<p>Graffiti is a style of art that has permeated society for centuries. It’s defined by the Cambridge dictionary as “words or drawings, especially humorous, rude, or political, on walls, doors, etc. in public places”  . The art can range from a simple ‘tag’ or name to a large, carefully planned and colourful design. Walls are an artist’s chosen medium here, but wall art can be called street art, graffiti or mural painting. The distinction can often lie in the legalities  . Graffiti’s status in this respect has remained usually illegal, created without permission, especially in history. Murals are also public art, usually on walls or ceilings, but are different because they are legal, accepted or allowed.</p>
-<p>“This is generational,” says Gaz Mac aka Gary Mackay, the Studio Director of Yardworks Glasgow  , “from ancient Europe, Ancient Africa, Ancient Asia.” Yardworks started as a simple arts initiative, rising into a creative programme recognised and respected globally. It’s located in the same compound as music venue, SWG3 and has not only become synonymous with championing the best of Glasgow graffiti but pulled artists from across the globe to paint in Glasgow, hosting a massive annual graffiti festival. Mac conceived of the venue in 2004 alongside SWG3 founder Andrew Fleming-Brown. “There was always graffiti on castles and caves.”</p>
-<p>What caves does Gaz Mac speak of? This comment he made – at the very beginning of our conversation – made me pause while Mac, speaking a mile a minute, had moved on to Glasgow’s introduction to graffiti through local gangs – but more on the gangs later.</p>
-<p>Some official reports of archaeology done in sites like Lascaux, France and Altamira, Spain with cave paintings do refer to “graffiti-like scenes” of sex and hunting  . Art historians have even noticed many the handprints of many teenage males dominating the marks left on the caves. Others voice their disdain toward making the mistake of crediting the art of these ancient humans as graffiti  . Jeffery Ian Ross says the premise is flawed, since we do not know if the markings were made without the permission of the one living or working at the cave. It can only be graffiti if an expert says so according to Ian Ross - an expert, peer-reviewed one - as the lived experience of a graffiti tagger may not amount to any knowledge still. But academic literature refers to, say the negative handprints from prehistoric times, or names (tags), handprints, portrait sketches etc. as personal identifiers in history  . While debate on what is and isn’t graffiti is just as rife as conflicts over whether this art should be legal or not, these impressions are personal identifiers and tell us about the hand responsible for making the art.</p>
-<p>This is what Polly Lohmann argues. Ancient graffiti can be found on long corridors in Pompeii, preserved by the ash of Mount Vesuvius when it erupted  . Despite textual evidence showing us inscriptions at these sites were banned, they can be found on Roman graves or medieval churches, which usually survive since these sites are kept in continuous use or are protected as sacred spaces and cultural heritage (p. 41).  The inscriptions were usually names, personal symbols and images. “The language and style of graffiti can reveal different levels of literacy,” she says, “local dialects, common forms of orthography or the relation between oral and written languages,” (p. 45).</p>
-<p>This instinct, it seems, recurs throughout history. Indeed, Glasgow is not new to this phenomenon. Atlas Obscura reported on “vandalistic inscriptions” dating back to the early nineteenth century, at the Cathedral of St. Mungo or Glasgow Cathedral, a combination of names, initials, dates and a series of sentences  . While some simply choose to say, “Die Wee Must”, others have carved out combinations of hymns, poem or Bible excepts.</p>
-<p>“By containing personal identifiers, self-reflective jokes, personal messages and statements, graffiti represent the individual rather than the whole of society…emotions rather than facts and therefore, have a specific value as historical sources,” (Lohmann, 2020, p. 51). Graffiti, or etchings on a wall are washed off easily, a consequence of being exposed to the natural elements. If aliens end up finding a desolate Earth, perhaps, the art that remained might paint them a picture of our lives. Returning to the present, the original taggers of New York were well aware of the fragile nature of their art. So why do they, or any graffiti artist in the US, Brazil or Glasgow, still do it?</p>
+<hr>
 
-<h1>Subway Art</h1>
-<p>The form and style of modern graffiti originated in New York, inspired by burgeoning hip-hop of the time. It grew alongside new music and DJs, dance forms like breaking and popping  . While the graffiti before 1965 was gang-related with members interested in marking territory on walls, it was separate from the writing of the 70s and 80s. Here, “dispossessed young people” were starting to make art out of their frustration and boredom (p. 31)  . Writers – as they preferred to be called – like Taki 183 wrote their name everywhere, stepping up to ‘tagging’ trains and buildings eventually  . Experimenting with style and size, these youth chose subway cars as their ideal medium since the trains would travel – and thus display their name – all over the city (p. 14-15).</p>
-<p>Yardworks boss Gaz Mac grew up in Govan, Glasgow and was exposed to graffiti at twelve years old. The chosen mode of transport for young boys here, though, were the backs of old corporation buses. Mac wrote for the Young Tiny or the Young Teens, a crew it seems of boys who would tag big ‘Y’s in a sans-serif font style  . Housing estates and an abundance of drugs is the setting he describes, a child of sixteen around addicts in the depths of a heroin epidemic. The jilted generation, he said he belonged to, with “Margaret Thacher coming into power, the Tories, and the jobs,” which he describes as closing down in all the major Glaswegian industries – shipbuilding, coalmines, steel plants. The youth were put into opportunity programs.</p>
-<p>Mac stood out in this city in his younger years, adopting hip-hop culture among the punks and rockers, and making it his own. “Very British,” is how he described it along with UK music and graffiti figures Goldie, the jungle producer, and 3D from trip hop band Massive Attack. He’d travel down to Manchester or Liverpool to spray paint, “Every now and then I'd meet somebody. At that age, nobody took you serious. 'It's just some Scots guy. Here's this little jock, says he's doing graffiti.'” Boys have a way to make you feel like a wee, little human. The taunts only made Mac more determined. “The more you done it, the better you got. The more respect you got,” he describes. This philosophy of quantity and/or quality earning respect is talked about in Nancy Macdonald’s book, ‘The graffiti subculture: youth, masculinity, and identity in London and New York’.</p>
-<p>Since graffiti is (or was since the legal status of graffiti is changing in cities like Glasgow) largely illegal, the act can be perceived as masculine by the boys that run in this subculture. They compare the daring endeavours, – a particularly hard-to-access train, or a stylish ‘piece’ in a big or visible spot – weigh the risks, respect the machismo. This is why boys may feel like they need to enact their masculinity – the boldness of graffiti and the risks with authorities that used to be involved – over and over again, as “no sooner is it proved that it is again questioned,” according to Macdonald (p. 105).</p>
-<p>Showing and upholding respect is important in the subculture. “I was referred to the wee graffiti guy. 'Oh, the wee graffiti guy'll do that,'” Gaz Mac recalled of a time one year ago, a graffiti veteran of almost 45 years. “The wee graffiti guy will not do that,” he sasses, “And if the wee graffiti guy does that, he'll charge you a fortune for it.” Graffiti is built on an intricate hierarchy, and members are not afraid to quality control.</p>
+<!--table of contents-->
+<div id="toc">
+    <p>Contents</p>
+    <ol>
+      <li><a href="#whats-the-difference">What’s the difference?</a></li>
+      <li><a href="#i-was-here">I was here!</a></li>
+      <li><a href="#subway-art">Subway Art</a></li>
+      <li><a href="#the-lingo">The Lingo</a></li>
+      <li><a href="#the-glasgow-city-council">The Glasgow City Council</a></li>
+      <li><a href="#money">Money, Money, Money</a></li>
+      <li><a href="#the-clutha-bar">The Clutha Bar</a></li>
+      <li><a href="#in-it-together">In it together</a></li>
+      <li><a href="#references">References</a></li>
+      <li><a href="#art-trail-map">Glasgow Art Trail Map</a></li>
+    </ol>
+  </div>
 
-<h1>The Lingo</h1>
-<p>What’s in a name: Artists choose to use pseudonyms or ‘artist names’ when they ‘tag’ their name or create larger ‘pieces’ around their name. The name is a personal identifier, “a source of fame and respect,”  . “I think that captures the imagination of young people,” says Gaz Mac, “They can be more than just, Adam Smith from round the corner. They can be Zebster.”</p>
-<p>Piecebook: Sketchbooks of good quality paper. They are used to practice graffiti or plan out ‘pieces’.</p>
-<p>Crews: often trusted friends  , they are groups of writers who collaboratively may practice spray cans, design and paint elaborate.</p>
-<p>Tag: Also called ‘bombing’, this is the easiest place to start, according to Macdonald (p.74). It’s the stylised name drawn with markers or spray cans, “the purest, simplest form,”.</p>
-<img src="tag.jpg" class="lingo-img"> <figcaption>A tag by 'Chas', found at the CLydeside walls</figcaption>
-<p>Throw-up: This is the aesthetic middle ground between a tag and a piece   and involves drawing simple, but larger outlines of their name  . Experimenting at this stage allows writers to form a recognisable original style.</p>
-<p>Piece: originating from the word ‘masterpiece’  , they are “large illegal murals developing along various lines of interaction and cooperation,” can be wildly stylised – even to the point of illegibility by non-writer audiences – and keeps writers visible within their subculture.</p>
-<img src="piece.jpg" class="lingo-img"> <figcaption>A piece by artists Guzler, Mul, and Rowdy, found in one of the Cowcaddens underpass walls</figcaption>
-<p>Biting: the authenticity and legitimacy of the writer is called into question here, and accuses the guilty party of using distinctive images, stylistic touches that belong to other writers or sources outside the scene.</p>
-<p>Going over: Painting over another writer’s existing piece to partly or completely cover it, it’s a natural consequence, and not an act of overt aggression.</p>
-<img src="going-over.jpg" class="lingo-img"> <figcaption>An example of new artwork having gone over the previous ones, found at the Clydeside walls</figcaption>
-<p>Dissin’: or as a proper Englishman would say, ‘disrespecting’. It’s a term borrowed from hip-hop, usually involves crossing out the work or writing derogatory comments on or beside it.</p>
-<p>Signpainting: writers may paint outside the subculture, for causes like AIDS awareness or signs for local businesses.</p>
-<img src="signpainting.jpg" class="lingo-img"> <figcaption>A piece by artists Vues, Marcus tattoos, and Jim Gray tattoo for the Scottish Tattoo Convention, found at the Clydeside walls</figcaption>
-<p>The lingo sets the graffiti subculture apart but also lets us know of the hierarchy in which writers group together in their cliques, battle it out with other cliques on the wall or showed such dedication the craft that the name eventually rises to ‘king’ status. A king has claimed territorial rights over a certain [subway] line or other property   or is an acclaimed veteran, much like Gaz Mac might be. The richest space for this subculture around Glasgow, at least in terms of variety and access to the public, are the Clydeside and Cowcaddens underpass legal graffiti walls, from where many of the above pictures were taken.</p>
+  <hr>
 
-<h1>The Glasgow City Council</h1>
-<p></p>
+<!-- ── INTRO ── -->
+<div id="intro">
+
+  <p>If someone asked a graffiti writer where a location might be in Glasgow, they would say it was beside a certain tag or artwork, street artist OhPanda says. It’s like their own map. Panda grew up in Paisley where he saw graffiti and street art, and thought it looked cool.</p>
+
+  <p>As I speak to Panda in Grateful Gallery, a pristine shop tucked in the sloping Garnethill lanes, I reflect on my first memories of Glasgow. The large wall painting on the side of the Graham Hills building and visible from the steep North Portland Street that strikes fear in every Strathclyde student’s heart, Panda’s exceedingly recognisable ‘Big Heids,’ or even colourful letters in the city centre tucked in dark alleyways.</p>
+
+  <figure>
+  <img src="strathclyde.jpg">
+  <figcaption>Former and current Strathclyde students featured on the University's campus</figcaption>
+</figure>
+
+  <p>Rolling into the Scottish spring, Glasgow’s walls seem brighter than ever, and I find myself looking at artworks more. This city can showcase a diverse range of art styles across many forms, but only if you look closely.</p>
+
+</div>
+
+<hr>
+
+<!-- ── WHAT'S THE DIFFERENCE? ── -->
+<div id="whats-the-difference">
+  <h3>What's the difference?</h3>
+
+  <p>Graffiti art in a general sense is “words or drawings, especially humorous, rude, or political, on walls, doors, etc. in public places.”<a href="#ref-1" id="note-1" class="fn">[1]</a> It’s done in sketchbooks and on walls where it’s usually sprayed without permission.<a href="#ref-2" id="note-2" class="fn">[2]</a></p>
+
+  <p>“Mark-making without a commission or permission would always have been seen as a violation or as iconoclasm” says Clare Willsdon,   Professor of History of Western Art at the University of Glasgow.</p>
+
+  <p>Murals are also made on walls or ceilings, but usually different because they are legal, accepted or allowed.<a href="#ref-3" id="note-3" class="fn">[3]</a> Professor Willsdon elaborates, “The big public-building commissioned mural would typically involve the artists having to submit designs for approval by the patron or donor.”</p>
+
+  <p>The nuances of graffiti, however, run deep. Content matters just as much as context and according to Brian Evans,– Professor of Urbanism and Landscape at the Glasgow School of Art – their relevance in the message of art is equal. </p>
+
+  <p>“The easiest way to describe it would probably be [that] letter-based stuff is graffiti. Do you have a tag?” asks Panda.</p>
+
+  <p>“I identify as a street artist,” he points out and I get the sense that people can mistake graffiti and street art to be similar, if not the same type of art. Artists from a traditional graffiti background often joke that street artists can’t write their own “name.” His ‘Big Heids’ are exaggerated faces with big, round eyes and a lower jaw jutting out, coming in every colour combination possible; a significant deviation from the block letters or ‘wild style’ of graffiti.</p>
+
+  <figure>
+  <img src="panda-wild-style.jpg">
+  <figcaption>OhPanda’s Big Heids [top] and wild style graffiti art near the Yorkhill underpasses [bottom]</figcaption>
+</figure>
+</div>
+
+<hr>
+
+<!-- ── I WAS HERE! ── -->
+<div id="i-was-here">
+  <h3>I was here!</h3>
+
+  <p>The office of Gaz Mac, Studio Director of Yardworks, is surrounded by indescribable amounts of vibrant artwork on the walls of the SWG3 yard.</p>
+<figure>
+  <img src="yardworks.jpg">
+  <figcaption>A wall at Yardworks from its festival in 2025</figcaption>
+</figure>
+  
+  <p>“This is generational from ancient Europe, Ancient Africa, Ancient Asia,” he says.</p>
+
+  <p>Yardworks started as a simple arts initiative, rising into a creative programme recognised and respected globally. It’s championed the best of Glasgow graffiti and pulled artists from across the globe to paint in Glasgow, hosting a massive annual graffiti festival.</p>
+
+  <p>Official reports of archaeology in caves like Lascaux, France and Altamira, Spain talk about “graffiti-like scenes” of sex and hunting that feature among visuals of animals and human stick-figures.<a href="#ref-4" id="note-4" class="fn">[4]</a></p>
+
+  <p>Academic literature refers to, the negative handprints from prehistoric times, or names (tags), handprints, portrait sketches etc. as personal identifiers in history.<a href="#ref-5" id="note-5" class="fn">[5]</a> While debate on what is and isn’t graffiti <a href="#ref-6" id="note-6" class="fn">[6]</a> is just as rife as conflicts over whether this art should be legal or not, these personal identifiers tell us about the hand responsible for making the art.</p>
+
+  <p>Despite prohibitions on inscriptions – names, personal symbols and images – at these sites, ancient graffiti can be found on Roman graves, medieval churches or long corridors of Pompeii. <a href="#ref-7" id="note-7" class="fn">[7]</a></p>
+
+  <p>“The language and style of graffiti can reveal different levels of literacy, local dialects, common forms of orthography or the relation between oral and written languages,” says Polly Lohmann, the author of an academic paper studying historical graffiti. <a href="#ref-8" id="note-8" class="fn">[8]</a></p>
+
+  <p>This instinct, it seems, recurs throughout history. Glasgow is not new to this phenomenon. Atlas Obscura reported on “vandalistic inscriptions” dating back to the early nineteenth century, at the Cathedral of St. Mungo or Glasgow Cathedral, a combination of names, initials, dates and a series of sentences.<a href="#ref-9" id="note-9" class="fn">[9]</a> While some simply choose to say, “Die Wee Must”, others have carved out combinations of hymns, poem or Bible excerpts. <a href="#ref-10" id="note-10" class="fn">[10]</a></p>
+
+  <figure>
+  <img src="glasgow-cathedral.jpg">
+  <figcaption>Inscriptions etched into the stone of the Cathedral of St. Mungo</figcaption>
+</figure>
+  
+  <p>Professor Willsdon explains these types of inscriptions were common for churches. Permanent inscriptions on buildings that were meant to endure through the ages were thought to protect the writer – “The text written in the holy building would acquire an almost talismanic power.”</p>
+
+  <p>Historians speculate that graffiti in chalk or charcoal may have littered ancient buildings but were likely washed off by the elements, much like how modern graffiti and murals are removed or painted over. Panda thinks the impermanence is good.</p>
+
+  <p>He says, “It encourages people to get better.”</p>
+
+</div>
+
+<hr>
+
+<!-- ── SUBWAY ART ── -->
+<div id="subway-art">
+  <h3>Subway Art</h3>
+
+  <p>Conzo Throb is another Glaswegian illustrator, street artist and co-owner of Grateful Gallery, along with artists OhPanda and graphic designer Ciaran Globel.  He is best known for his mural of beloved Scottish actor, Billy Connolly naked, wearing bright yellow boots at Nelson Mandela Place in the city centre with Globel. Conzo’s style is best described as vibrant interpretations of cultural symbols and Scotland’s isms, like ‘Did ye aye?’ or ‘Taps Aff!’</p>
+
+  <figure>
+  <img src="grateful-gallery.jpg">
+  <figcaption>The signature heart characters of Glasgow artist Mul outside Grateful Gallery</figcaption>
+</figure>
+  
+  <p>"Drawing the characters generally started off around 2004 when I was in school. I was always into art, so my teacher showed me a book called Subway Art,” he tells me. </p>
+
+  <p>The book Subway Art, published in 1984, contained photographs of graffiti on New York subway cars, thought of as the Bible of graffiti. Among many others, Conzo felt enthusiastic about the art he saw in this book. Originating in New York, the style grew alongside hip-hop music and dance forms like breaking.<a href="#ref-11" id="note-11" class="fn">[11]</a></p>
+
+  <p>While the graffiti before 1965 was gang-related with members interested in marking territory on walls, it was separate from the writing of the 70s and 80s. “Dispossessed young people” were making art out of frustration and boredom. <a href="#ref-12" id="note-12" class="fn">[12]</a> Writers, as they prefer to be called, like Taki 183 wrote their name everywhere. Experimenting with style and size, these youth chose subway cars as their ideal medium since the trains would travel – and thus display their name – all over the city. <a href="#ref-13" id="note-13" class="fn">[13]</a></p>
+
+  <p>Yardworks boss Gaz Mac grew up in Govan and at twelve years old, was exposed to graffiti. But the chosen mode of transport for young boys here were the backs of old corporation buses. Mac wrote for the Young Tiny or the Young Teens, a crew of boys who would tag big Ys in a sans-serif font style.<a href="#ref-14" id="note-14" class="fn">[14]</a> Housing estates and an abundance of drugs is the setting he describes. He was born in what he called a jilted generation, with “Margaret Thatcher coming into power,” and people losing jobs in major Glasgow industries – shipbuilding, coalmines, steel plants.</p>
+
+  <p>Mac stood out in his younger years, adopting hip-hop culture among the punks and rockers of Glasgow and making it his own. He’d travel down to Manchester or Liverpool to spray paint. </p>
+
+  <p>“Every now and then I'd meet somebody. At that age, nobody took you serious.” The taunts only made Mac more determined. </p>
+
+  <p>“The more you done it, the better you got. The more respect you got.”</p>
+
+  <p>Since graffiti is (or <em>was</em> since the legal status of graffiti is changing in cities like Glasgow) largely illegal, the act can be perceived as masculine by the boys that run in this subculture. They compare the daring endeavours, – a particularly hard-to-access train, or a stylish ‘piece’ in a big or visible spot – weigh the risks, respect the machismo. This is why boys may feel like they need to enact their masculinity – the boldness of graffiti and the risks with authorities that used to be involved – repeatedly, as “no sooner is it proved that it is again questioned.” <a href="#ref-15" id="note-15" class="fn">[15]</a></p>
+
+</div>
+
+<hr>
+
+<!-- ── THE LINGO ── -->
+<div id="the-lingo">
+  <h3>The Lingo</h3>
+
+  <p>The vocabulary of graffiti is as layered as the culture itself – a private language that marks insider from outsider, veteran from novice.</p>
+
+  <div class="lingo-grid">
+
+    <div class="lingo-card">
+      <h4>Tag</h4>
+      <p>This is the easiest place to start, characterised by stylised names drawn with markers or spray cans, “the purest, simplest form,” <sup><a href="#ref-16" id="note-16" class="fn">[16]</a></sup> It’s a method of practicing line-work, form and more but the barrier of entry is low at this stage.</p>
+    <figure>
+  <img src="tag.jpg">
+  <figcaption>An array of tags at the S Portland Street Suspension Bridge</figcaption>
+</figure>
+    </div>
+
+    <div class="lingo-card">
+      <h4>Crews</h4>
+      <p>Often trusted friends, they are groups of writers who may practice spray cans, design and paint. <sup><a href="#ref-17" id="note-17" class="fn">[17]</a></sup></p>
+    <figure>
+  <img src="crew.jpg">
+  <figcaption>A piece by DBA Crew at the railway arches near Yardworks</figcaption>
+</figure>
+    </div>
+
+    <div class="lingo-card">
+      <h4>Throw-up</h4>
+      <p>This is the aesthetic middle ground between a tag and a piece <sup><a href="#ref-18" id="note-18" class="fn">[18]</a></sup> and involves drawing simple, but larger outlines of their name. Experimenting at this stage allows writers to form a recognisable original style.<sup><a href="#ref-19" id="note-19" class="fn">[19]</a></sup></p>
+    <figure>
+      <img src="throw-up.jpg">
+  <figcaption>A sketch of a throw up in wild style graffiti</figcaption>
+</figure>
+    </div>
+
+    <div class="lingo-card">
+      <h4>Piece</h4>
+      <p>Originating from the word 'masterpiece,'<sup><a href="#ref-20" id="note-20" class="fn">[20]</a></sup> they are large letters and/or characters and can be wildly stylised. <sup><a href="#ref-21" id="note-21" class="fn">[21]</a></sup></p>
+   <figure>
+      <img src="piece.jpg">
+  <figcaption>A piece at the Cowcaddens underpasses by artists Mul, Guzler and Rowdy</figcaption>
+</figure>
+    </div>
+
+    <div class="lingo-card">
+      <h4>Going over</h4>
+      <p>Painting over another writer’s existing piece to partly or completely cover it. <sup><a href="#ref-22" id="note-22" class="fn">[22]</a></sup></p>
+    <figure>
+      <img src="going-over.jpg">
+  <figcaption>New pieces covering old ones at the Clydeside walls</figcaption>
+</figure>
+    </div>
+
+    <div class="lingo-card">
+      <h4>Dissin'</h4>
+      <p>Or as a proper Englishman would say, ‘disrespecting’. A term borrowed from hip-hop; it involves crossing out the work or writing derogatory comments beside it. <sup><a href="#ref-23" id="note-23" class="fn">[23]</a></sup></p>
+    <figure>
+      <img src="dissing.jpg">
+  <figcaption>A simple tag with a blue line running through the centre</figcaption>
+</figure>
+    </div>
+
+    <div class="lingo-card">
+      <h4>Signpainting</h4>
+      <p>Writers may even paint outside the subculture, for causes like AIDS awareness or signs for local businesses. <sup><a href="#ref-24" id="note-24" class="fn">[24]</a></sup></p>
+    
+    </div>
+
+    <div class="lingo-card">
+      <h4>What's in a name?</h4>
+      <p>Artists choose to use pseudonyms or ‘artist names’ when they ‘tag’ their name or create larger ‘pieces’ around their name. The name is a personal identifier, “a source of fame and respect.” <sup><a href="#ref-25" id="note-25" class="fn">[25]</a></sup></p>
+    </div>
+    
+
+  </div>
+<figure>
+      <img src="signpainting.jpg">
+  <figcaption>A huge artwork by Vues, Mags and Gray celebrating The Scottish Tattoo Convention</figcaption>
+</figure>
+
+  <p>The lingo sets the graffiti subculture apart but also tells us of the hierarchy in which writers group together, battle it out with other crews on the wall or show such dedication the craft that the name eventually rises to ‘king’ status. The richest space for this subculture around Glasgow, at least in terms of variety and access to the public, are the legal graffiti walls.</p>
+
+</div>
+
+<hr>
+
+<!-- ── THE GLASGOW CITY COUNCIL ── -->
+<div id="the-glasgow-city-council">
+  <h3>The Glasgow City Council</h3>
+
+  <p>Glasgow’s civic authority commissioned its first modern mural in 2008 to brighten up stalled sites in the city centre <a href="#ref-26" id="note-26" class="fn">[26]</a> with many more completed artworks popping up since. Their involvement with the street art scene has exploded with the establishment of the Mural Trail and Grant Fund, and legalisation of walls in the city for graffiti.</p>
+
+  <p>Professor Willsdon spoke of the emergence of mural art in Britain as a way of “communicating shared ideals and beliefs, and a sense of British aspiration and identity.” It was at a time when the 1832 Reform Act was enfranchised. Glasgow was also keen on using murals in the City Chambers to display their wealth and power, “as murals cost money and could be seen as a demonstration of taste or cultural sophistication.” </p>
+
+  <p>paperwork completed and meeting council members etc - so the City Chambers building was very much a centre of social and local identity and was traditionally 'open doors' for the Glasgow citizens' benefit,” she says. Much of the iconography Professor Willsdon, in her online talk called ‘Edward A Walton and the Glasgow City Chambers murals,’   describes paintings by the Glasgow Boys as the realistic portrayal of contemporary life in the city. They portray the Legends of St. Mungo, personifications of the Clyde, and scenes of modern shipbuilding on the Clyde. </p>
+
+  <p>In 2014, Glasgow city leaders felt the cityscape needed to be spruced up for the upcoming Commonwealth Games that year and started the City Centre Mural Trail, a walkable path with a huge range of artwork displayed along the way.<a href="#ref-27" id="note-27" class="fn">[27]</a> Murals aren’t always obvious<a href="#ref-28" id="note-28" class="fn">[28]</a> and others like ‘St. Enoch and Child,’ done by Australian-born Glasgow-based SMUG have been removed. The mural used to sit on a gable end opposite the modern-day St. Mungo on High Street and was removed by the Wheatley Group “as part of a wider capital investment programme being undertaken on neighbouring properties.” <a href="#ref-29" id="note-29" class="fn">[29]</a></p>
+
+  <p>SMUG's latest <em>Keeper of Light</em> is a super-realistic, pink-tinted piece made with Yardworks and the Merchant City Community Council and scales 11 stories.</p>
+
+  <figure>
+      <img src="keeper-of-light.jpg">
+  <figcaption>Keeper of Light mural standing high at the Social Hub</figcaption>
+</figure>
+  
+  <p>Panda says he has a gripe with the murals, “In the same time they were doing the murals, they were also spending the most amount of money in the UK removing graffiti.” </p>
+
+  <p>He’s not wrong about the hundreds of thousands of pounds the council spends on graffiti removal. A 2020 report by Structural Repairs UK found that the Glasgow City Council spent £649,914 removing graffiti, more than double the amount of the next highest spender – the Borough of Hackney in London. When asked to report on the number of incidents of graffiti, the council said 6885 but did not rank in the top 10 list of cities with the highest incidents of graffiti. <a href="#ref-30" id="note-30" class="fn">[30]</a></p>
+
+  <p>One morning, I find Liam Goss of Covanburn Contracts Limited, a civil engineering and rail company, scrubbing off the graffiti high up on the S Portland Street Suspension Bridge near the Clydeside graffiti walls.</p>
+
+  <figure>
+      <img src="graffiti-removal.jpg">
+  <figcaption>Covanburn employees removing tags on the suspension bridge</figcaption>
+</figure>
+
+  <p>"We have some contracted in by the Glasgow City Council. We've been doing a couple of these removals. We're doing it all over Glasgow."</p>
+
+  <p>Using a special graffiti removing solution and a steam power wash, graffiti removal services can erase any sign of vandalism, although Goss admits it takes quite a bit of work. Services like Covanburn may see four locations a week.</p>
+
+  <p>As a street artist, Panda feels crackdowns on graffiti can stifle the culture. “If people were able to just go and paint, they'd do a tag and that would get painted over.” Even if the artwork would only be big graffiti pieces or big street art pieces, “You'd do something better. Eventually, you've got really cool artwork.”</p>
+
+  <p>Panda opened ColourWays, a Community Interest Company started in May 2020 to “support and promote graffiti and street art within Glasgow.” The company curates murals, hosts walking tours and street art and graffiti workshops with young people.</p>
+
+  <p>Panda thought, “Maybe if I start this social enterprise, I can create a little bit of a grey area.”</p>
+
+  <p>The Big Heids painter and gallery owner was involved in the legalisation of graffiti at pre-allocated walls in Glasgow. The City Council went ahead with a proposal for legal graffiti walls in three locations – Custom House Quay, the Cowcaddens underpasses, and the Riverside Museum and Yorkhill Underpass at the end of 2023. While the project began as a six-month pilot and despite residents around Cowcaddens feeling the brunt of the increasing stack of tags around them, <a href="#ref-31" id="note-31" class="fn">[31]</a> the walls have endured, with a mix of tagging, amateur throw ups and expertly created pieces showing up.</p>
+
+  <p>Panda tells me he still engages with the council and is invited to consultations, advocating for free and safe spaces for graffiti and street artists to paint their work.</p>
+
+  <p>But in recent times, he’s developed concerns that the Clydeside graffiti walls at Custom House Quay may be demolished. “When they were doing the consultations, asking the public what they wanted, they didn't show any photos of the graffiti walls,” Panda elaborates. He thinks this omission could be dishonest on the part of the council, with citizens losing the ability to voice their views on the graffiti walls. Panda seemed open-minded – welcoming, even – of the public’s honest opinions, good or bad. </p>
+
+  <p>“To be fair,” he says, “Getting a legal wall off them was crazy.”</p>
+
+</div>
+
+<hr>
+
+<!-- ── MONEY, MONEY, MONEY ── -->
+<div id="money">
+  <h3>Money, Money, Money</h3>
+
+  <p>Professor Clare Willsdon looks at the modern mural trail as “consciously building, at least to some extent, on that heritage of Glasgow as an enterprising patron of modern art.” </p>
+
+  <p>Even if a mark on a wall isn’t official, the graffiti may not be valueless. “When a Banksy appears on a wall, those who own the wall may not like its style or content but have to recognise that it has value because of Banksy's reputation,” she says. </p>
+
+  <p>Professor Brian Evans asks, “Is Banksy art or graffiti? The arts establishment has now got so far as to consider that it is not only a work of art, but it's a tradable work of art.”</p>
+
+  <p>“What's the difference between graffiti on a bus and advertising on a bus?” he posits, “Graffiti is graphic art. So is advertising. Why is advertising acceptable?”</p>
+
+  <p>“Because it contributes to neoliberal economics,” he answers. </p>
+
+  <p>Graffiti, it seems, exists in the same capitalist reality as it’s adjacent styles. Murals and street art, to some extent, have a space within legal contexts to support monetary transactions. Whether the Glasgow City Council commissions a mural artwork or funds a project through their Mural Fund, or formerly public art evolves to be made and sold on paper, canvas and other merchandise, the value of graffiti, street art, murals or other public surface impressions increases when the question of money enters the chat.</p>
+
+  <p>An artwork commissioned to prolific Glaswegian muralist Rogue One created waves in Glasgow after the mock-up for a proposed mural on Elmbank Street was flagged as AI generated earlier this year. <a href="#ref-32" id="note-32" class="fn">[32]</a> According to the proposer, Derek Paterson from Balmore Estates Limited, the AI design will be refined to fit a Scottish feel (the AI image was seen to have a bald eagle which isn’t native to Scotland), asking the “keyboard warriors” to relax. <a href="#ref-33" id="note-33" class="fn">[33]</a></p>
+
+  <p>But fellow artist Panda thinks Rogue doesn’t deserve the heat. “We live in a capitalist society, and these are commercial jobs,” he says. While some choose to remain commercial artists, – and companies do tend to prefer economically viable options – Panda cannot depend on technology alone. </p>
+
+  <p>“I still have to do my own work. I can't get AI to paint the streets for me.”</p>
+
+  <p>“What makes graffiti writers interesting as a place or people to study is, you might look at criminals circumventing security measures for a financial gain. Whereas graffiti writers are doing it for this sport,” says Panda, speaking to the subversive nature of traditional graffiti.</p>
+
+  <p>He thinks, “If all [society] values is that you go to work, you buy stuff, you consume, that doesn't really fill your soul in the right way. People seek out ways to nurture their soul…you end up with other people around you and build a community.”</p>
+
+  <p>Graffiti, along with street art and muralism, seems to be an individual pursuit, a tool for personal expression with characteristics of the art changing in different hands. Despite Gaz Mac’s tagging as a 12-year-old boy, the artist no longer creates artwork illegally. The Glasgow Council, too, continues its tradition of murals representing the common people and industries of Glasgow in its mural trail, albeit in misguided ways as many citizens of Glasgow see the proposed artwork for the AI mural.</p>
+
+  <p>The Clutha and Victoria Bar is another space bringing community together; a 200-year-old location that has become a Glasgow landmark, not only for its music but because of the crash of an errant helicopter in 2013 that killed ten people. <a href="#ref-34" id="note-34" class="fn">[34]</a></p>
+
+</div>
+
+<hr>
+<blockquote>“If all [society] values is that you go to work, you buy stuff, you consume, that doesn't really fill your soul in the right way. People seek out ways to nurture their soul…you end up with other people around you and build a community.”</blockquote>
+<hr>
+
+<!-- ── THE CLUTHA BAR ── -->
+<div id="the-clutha-bar">
+  <h3>The Clutha Bar</h3>
+
+  <p>Among my different homes in Glasgow, the room with the best view looked over the Clyde. It’s easy to see how this river influenced its surrounding land. Alan Crossan,   owner of the Clutha and Victoria Bar which sits on the shores of the river Clyde tells me how the bar was named after the boats that would ferry people up and down the Clyde. </p>
+
+  <p>“There was a lot of free wall space after the accident,” says Crossan, “I've covered up the old Clutha because I didn't want it to be looked at.” Crossan, determined to revitalise the bar, decided to get artists Rogue One and fellow graffiti and street artist, EJEK to paint the outside walls. <a href="#ref-35" id="note-35" class="fn">[35]</a></p>
+
+  <p>“The first murals that we'd done was people who were in black and white,” Crossan recollects, “You had people like Stan Laurel, from Laurel and Hardy. Woody Goffrey, Spike Mulligan and various people like that.”</p>
+
+  <p>The celebrities had all been visitors of the bar in the past. A mural of Charles Rennie Mackintosh – done in a modern rendition of an art nouveau style with roses stylised as made on stained glass – still graces the upper wall of the bar, alongside a massive Ukrainian flag. </p>
+
+  <figure>
+      <img src="clutha-bar.jpg">
+  <figcaption>The outside façade of the Clutha Bar</figcaption>
+</figure>
+
+  <p>When the Ukraine war started, Crossan recounts, “There was some graffiti on it. Bad graffiti.” So, he asked some painters to do the flag. “You can see that everywhere. And I've had Ukrainians emailing me, saying that it lifts their heart when they see it.” </p>
+
+  <p>The Clutha’s façade now features many Glasgow artists from many backgrounds, – street art, muralism, graphic design – a pastel-coloured theme running across them.</p>
+
+  <p>The bar is part of a Trust run by Crossan, running many programs – art, music and drama classes for kids, a pizza foodbank, a program called 'Power Over Poverty' covering the electricity bills of struggling families and more. <a href="#ref-36" id="note-36" class="fn">[36]</a> The Clutha Trust also funds art materials to schools that need them, and supports an artist called Maureen Rocksmoore. She works with children in schools; the troublesome ones, chosen by the school's management to have art classes.</p>
+
+  <p>“Troubled for different reasons,” she says, “Some were neurodiverse, some had difficult lives. You maybe have eight boys who are difficult all trying to learn how to behave with other difficult people which I think is really hard for kids."</p>
+
+  <p>She balances her time selling paintings and has a studio at the first floor of the Briggait, where she asks me to meet her. Her small room is filled with canvases. It looks over the Clyde, a birds-eye view of the Clutha also in view.</p>
+
+  <p>“That's the local that I would go to if I wanted a break, go for a bowl of soup or something. I got to know Alan and everybody and I remember just having a chat one day.”</p>
+
+  <p>The bar owner immediately decided to help Rocksmoore with art supplies in some schools. “The council pay me to work there but also the Clutha have helped fund projects,” Rocksmoore even tells me of an art exhibition hosted at the Clutha for Rocksmoore’s 10-year-old boys; other artists were invited to view artworks from the children on opening night complete with food and drink. </p>
+
+  <p>She describes the requirements of her job in education – she teaches them art, but daily activities come with dealing with concentration issues, anger-management, helping her kids with self-esteem or just listening to them. “I don't ask any open questions. I'm not allowed to do that. But quite often, when somebody's doing art, they'll just start telling you,” she says, “It's just a sign that they're really comfortable.” </p>
+
+  <p>Rocksmoore has seen children not attending school coming in to see her for art. “The attendance went up. And he was coming in because his elf-esteem was going up. For the kids, they know it’s something special.”</p>
+
+  <p>Her work is parallelled by youth initiatives and workshops taken up by other organisations like Mac's Yardworks and Panda's ColourWays.</p>
+
+  <p>Yardworks engages with 15 different primary schools in the area, in addition to running youth employability programs, providing bronze SQA accreditations – although Mac says the city council recently dropped their funding. <a href="#ref-37" id="note-37" class="fn">[37]</a> The charity boasts 100% young people turning to education after completing their employability program <a href="#ref-38" id="note-38" class="fn">[38]</a> and Mac seems proud to give back to his community. </p>
+
+  <p>“I never went to school. I wanted to be a bricklayer. I was fascinated by walls.” We joke about how Mac has ended up working on walls every day, “The only classes I attended was woodwork, metal work. Always working with my hands. I keep going back to my roots. My roots being graffiti letters and my name.”</p>
+
+  <p>Professor Brian Evans, a Glasgow School of Art faculty member, believes such programs are essential. “Engagement of young people in the city in any way is essential,” he says, “It's fundamental. Everybody needs a voice.”</p>
+
+</div>
+
+<hr>
+
+<!-- ── IN IT TOGETHER ── -->
+<div id="in-it-together">
+  <h3>In it together</h3>
+
+  <p>Despite Glasgow’s deep history and warm population, it isn’t without its faults. The city has had many incidents of racist graffiti. In one incident last year, graffiti that said ‘Scots First’ could be seen in bright white lettering on a wall outside the Glasgow Central Mosque. <a href="#ref-39" id="note-39" class="fn">[39]</a> Issues have come in the form of vandalism at Partick Thistle’s Firhill stadium, with seats being left damaged and graffiti being written on seats and in toilets that were racist in nature. <a href="#ref-40" id="note-40" class="fn">[40]</a> The Glasgow Guardian has even reported of graffiti being left on the St. Andrews building on the University of Glasgow campus that read, ‘Kill the Chinese.’ <a href="#ref-41" id="note-41" class="fn">[41]</a></p>
+
+  <p>“Everybody’s got their own code,” says Professor Evans. “My code's more general than that. Try to do no harm to people. No hate, no violence.” But he describes this fluid, non-official ‘code of conduct’ within the graffiti subculture as “honour amongst thieves.” The phrase seems ideal to describe the largely individual undertaking of morality in arts spaces. While understandings exist, – dissing another writer’s tags bringing trouble, churches and graves being off limits, going over another piece being warranted when the art on top looks better than the one below – not everyone seems to get the memo.</p>
+
+  <p>Even the Garnethill community, home to Panda and Conzo’s Grateful Gallery, found itself tired of the taggers at Garnethill park. One particular wall at this park, partially hidden by trees, was once known to host a mosaic mural. Today, the mural is almost completely hidden and covered by the random colours of various taggers and graffiti writers flitting past the site. Two Garnethill community councillors speaking to the Bell thought it made the place look unloved. The potential for a mural in a different part of the community also worried to the councillors; they were afraid it would be inevitably bombed by graffiti-ers. <a href="#ref-42" id="note-42" class="fn">[42]</a></p>
+
+  <figure>
+      <img src="garnethill-park-graff.jpg">
+  <figcaption>Tags and throw ups littered on a wall at the Garnethill Park</figcaption>
+</figure>
+  
+  <p>Still, Grateful Gallery enjoys the slow life of community-living. “People come to us,” says Conzo Throb. “People of all ages, up to their 70s coming in and telling you what this place used to be in 1965,” the Garnethill residents seem to have accepted the gallery owners into their fold. Elements of the gallery, like the wooden bench I sat on while chatting with the owners or the neon light sign featuring Conzo’s happy sun, were donated. </p>
+
+  <p>“There's definitely been that link of people wanting to help connect to making this place work for the rest of the years we're in here. It's cool," says Conzo.</p>
+
+  <p>Tags around Glasgow aren’t always easily accepted as a natural part of the graffiti subculture either. “It's ugly when it's not controlled,” Clutha owner Alan Crossan says. He can’t understand why it’s a fad or what joy graffiti writers may get out of it. But he does believe the writers have skills. “They need a direction in their lives,” he continues. Crossan’s reaction is to ask artists to come paint his walls. “Why don't you come in and paint a wall?” he says, “What you think is good-looking. Rather than go and spray somebody's door which is stupid looking. It makes a place look dirty whereas the art makes it look trendy.” </p>
+
+  <p>Panda, whose artwork is also proudly on display outside the Clutha, says it’s easy to forget the essence of graffiti and why someone may do it. He recalls painting at the graffiti walls Clydeside. “People were interacting with us and it's dead nice to see people interacting,” he recalls, “That's the point of this in a way.” </p>
+
+  <p>He isn’t wrong. The graffiti and street art subculture is designed to bring people together, be it through a graffiti wall, jam, festivals like Glasgow’s Yardworks, crews like Easy Riderz or the culturally inspired galleries, organisations and charities that have emerged. Even the Clutha, a site scarred by a freak accident, revitalised itself in the Glasgow ecosystem by painting its doors in colour. The bar sees success in its charitable endeavours, hoping to expand its annual street festival featuring Glaswegian food, music and art. </p>
+
+  <p>The Glasgow City Council’s Mural Trail is reported to have succeeded in its mission to bring in new and increased numbers of tourists, having realised that interest in street art is growing. The trail offers an off-the-beaten-path, alternative tourism to tourists that would prefer to explore huge murals.   It has even won an award in ‘placemaking,’ given by the Scottish Arts and Business Awards in 2017.   In 2020, Tripadvisor also recognised it as a ‘top attraction.’ <a href="#ref-43" id="note-43" class="fn">[43]</a></p>
+
+  <p>Removal of artwork on the part of the City Council, however, can seem arbitrary at best and frustrating at worst. Panda has been vocal about his own artwork and that of other artists he had commissioned being arbitrarily taken down, without consultation of local communities. <a href="#ref-44" id="note-44" class="fn">[44]</a> He even spoke about a memorial mural taken down – painted close to where Grateful Gallery currently stands. The mural featured the character Charlie Brown and was made in memory of Jools Murray who committed suicide. “It was very annoying and frustrating because, why are you painting over that just because it looks like graffiti,” Panda tells me.</p>
+
+  <figure>
+      <img src="jools.jpg">
+  <figcaption>Throw up in memory of Jools</figcaption>
+</figure>
+  
+  <p>Wall art in this city has enjoyed a diverse and longstanding relevance. From the detailed 19th Century City Chamber murals Professor Willsdon studies, modern Council-permitted murals to simple and broken-down graffiti done in wild style, block or bubble letters, to the intuitively designed Glasgow characters like Billy Connolly, Glasgow’s choice in art is a loud expression of its unique identity.</p>
+
+  <p>Just like St. Mungo features repeatedly in 19th Century murals or modern renditions with the patron saint shown as a common man, there are many other quintessential Glasgow symbols that also refuse to vanish. Scottish actor Billy Connolly is a popular subject – from the BBC Scotland commissioned, Dixon Street gable end mural painted by Jack Vettriano to the (also BBC Scotland commissioned) John Byrne-based one just off Stockwell Street painted by Rogue One, although this mural has been removed.</p>
+
+  <p>Graffiti culture is seeing a revolution in recent times. Even with its own unique lingo and character, the previously illegal artform now enjoys legal status in areas like the Clydeside or Cowcaddens walls. Former writers like Gaz Mac are also seen to evolve with time – starting off as a bus driver sketching on the back of ticket rolls, Mac is now part of a global network of legendary artists.</p>
+
+  <p>Despite the city council’s hesitation in leaning into the new wave of unrestricted and unregulated graffiti and street art, the artists of Glasgow seem to be joining together to further the spirit of art. The workshops at Yardworks, Maureen Rocksmoore’s unique work in schools and the annual painting sessions outside the Clutha Bar is evidence. Graffiti, street and traditional artists in Glasgow continue to support their own and help the restless, growing and young generation understand the strengths of art. The children are intent on attending these art classes even if school seems boring, and Rocksmoore makes sure to teach her kids a multitude of life-lessons along the way.</p>
+
+  <p>Parallelling humanity, the graffiti-like nature of cave paintings rolls into Roman wall etchings and inscriptions. After years of studies in ancient graffiti, the vandalism rising in popularity in 70s and 80s New York retains an obsessive public nature. The tags of graffiti writers are almost always a made-up pseudonym, but writers choose to display their art in the most visible and ostentatious ways with the hope that their name can be the biggest and the best. </p>
+
+  <p>As Polly Lohmann argues, the personal identifiers involved in ancient graffiti are what makes the topic such an important element of human history to study. It tells us about the daily lives, wishes and dreams of our ancient brethren. </p>
+
+  <p>Tagging, graffiti writing and street art are hotly contested issues in Glasgow. Some like it and some don’t. Some like looking at the massive City Council murals while others think they’re getting boring. And as it remains, each individual seems to adopt a personal Code of Conduct, the limits to their comfort levels and the extents of what they consider right and wrong. Most, I would say, do draw the line at violence, hateful or unnecessarily careless vandalism. </p>
+
+  <p>And just like the abundant individualism in opinion, Glasgow’s artists have an abundant variation in style. The city has a diverse range of subject – popular Scottish characters, symbols and celebrities, the diversity of its common people and industry. The artwork speaks to the reasons it was created – some may want to cover up a mural turned ugly. Others may want to reclaim their identity, as the Clutha did with their outside walls. Many young kids seem to only want to be seen, shout their ‘name’ on the streets by making the biggest, baddest and most beautiful pieces of graffiti. </p>
+
+  <p>What everyone in this city may have in common is the instinct to express their identity in public and on walls. </p>
+
+</div>
+
+<hr>
+<blockquote>As Professor Brian Evans told me, “There's something to be said for doing something constructive with blank walls.”</blockquote>
+<hr>
+
+<div id="art-trail-map" class="map-section">
+  <h3>Glasgow Art Trail Map</h3>
+  <p>Explore the locations featured in this story — from legal graffiti walls to murals and community spaces. Exploring on foot? You can open the locations on Google Maps. Just select a marker and click on the three dots.</p>
+  <div class="map-wrapper">
+    <iframe width="100%" height="500" frameborder="0" title="Felt Map" src="https://felt.com/embed/map/Glasgow-Art-Trail-Wxn4xEkwQYusmGaFTgvp7D?loc=55.86068%2C-4.26817%2C13.73z&legend=1&cooperativeGestures=1&link=1&geolocation=0&zoomControls=1&scaleBar=1" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+</div>
+
+<!-- ── REFERENCES ── -->
+<section id="references">
+  <h3>References</h3>
+
+  <ol class="ref-list">
+
+    <li id="ref-1"><span class="ref-num">1</span><span>Cambridge Dictionary (2026) <em>graffiti</em>. <a href="https://dictionary.cambridge.org/dictionary/english/graffiti" target="_blank">https://dictionary.cambridge.org/dictionary/english/graffiti</a></span><a href="#note-1" class="back-link">↩</a></li>
+
+    <li id="ref-2"><span class="ref-num">2</span><span>Eden House of Art (2026) 'What is Graffiti Art? Is Graffiti Art?' <a href="https://www.edenart.com/news/what-is-graffiti-art" target="_blank">https://www.edenart.com/news/what-is-graffiti-art</a></span><a href="#note-2" class="back-link">↩</a></li>
+
+    <li id="ref-3"><span class="ref-num">3</span><span>Eden House of Art (no date) 'What is a Mural? Types &amp; Examples.' <a href="https://www.edenart.com/news/what-is-a-mural" target="_blank">https://www.edenart.com/news/what-is-a-mural</a></span><a href="#note-3" class="back-link">↩</a></li>
+
+    <li id="ref-4"><span class="ref-num">4</span><span>Carey, B. (2006) 'Ancient Cave Art Full of Teenage Graffiti', <em>Live Science</em>. <a href="https://www.livescience.com/7028-ancient-cave-art-full-teenage-graffiti.html" target="_blank">https://www.livescience.com/7028-ancient-cave-art-full-teenage-graffiti.html</a></span><a href="#note-4" class="back-link">↩</a></li>
+
+    <li id="ref-5"><span class="ref-num">5</span><span>Lohmann, P. (2020) 'Historical Graffiti: The State of the Art', <em>Journal of Early Modern Studies</em>, 9, pp. 37–57. <a href="https://doi.org/10.13128/jems-2279-7149-11189" target="_blank">https://doi.org/10.13128/jems-2279-7149-11189</a></span><a href="#note-5" class="back-link">↩</a></li>
+
+    <li id="ref-6"><span class="ref-num">6</span><span>Ross, J.I. (2021) 'Stop giving the Neanderthals so much credit. Why prehistoric cave painting is not graffiti', <em>Jeffrey Ian Ross</em>, 12 August. <a href="https://jeffreyianross.com/stop-giving-the-neanderthals-so-much-credit-why-prehistoric-cave-painting-is-not-graffiti/" target="_blank">https://jeffreyianross.com/…</a></span><a href="#note-6" class="back-link">↩</a></li>
+
+    <li id="ref-7"><span class="ref-num">7</span><span>Newcomb, T. (2026) 'Archaeologists Just Found Ancient Graffiti in Pompeii That Proves Humans Never Change', <em>Popular Mechanics</em>. <a href="https://www.popularmechanics.com/science/archaeology/a70078908/pompeii-graffiti/" target="_blank">https://www.popularmechanics.com/…/pompeii-graffiti/</a></span><a href="#note-7" class="back-link">↩</a></li>
+
+    <li id="ref-8"><span class="ref-num">8</span><span>Lohmann, P. (2020), p. 45. Op. cit.</span><a href="#note-8" class="back-link">↩</a></li>
+
+    <li id="ref-9"><span class="ref-num">9</span><span>Allsass, S. (2023) 'Glasgow Cathedral Graffiti', <em>Atlas Obscura</em>. <a href="http://www.atlasobscura.com/places/glasgow-cathedral-graffiti-scotland" target="_blank">http://www.atlasobscura.com/places/glasgow-cathedral-graffiti-scotland</a></span><a href="#note-9" class="back-link">↩</a></li>
+
+    <li id="ref-10"><span class="ref-num">10</span><span>newcleckitdominie (2024) 'Chapter and verse', <em>New-cleckit dominie</em>, 12 May. <a href="https://newcleckitdominie.wordpress.com/2024/05/12/chapter-and-verse/" target="_blank">https://newcleckitdominie.wordpress.com/…/chapter-and-verse/</a></span><a href="#note-10" class="back-link">↩</a></li>
+
+    <li id="ref-11"><span class="ref-num">11</span><span>Christen, R. (2003) 'Art Crimes: Hip Hop Learning: Graffiti as an Educator of Urban Teenagers.' <a href="https://www.graffiti.org/faq/graffiti_edu_christen" target="_blank">https://www.graffiti.org/faq/graffiti_edu_christen</a></span><a href="#note-11" class="back-link">↩</a></li>
+
+    <li id="ref-12"><span class="ref-num">12</span><span>Lewisohn, C. (2008) <em>Street art: the graffiti revolution</em>. Internet Archive. <a href="http://archive.org/details/streetartgraffit0000lewi_d4m3" target="_blank">http://archive.org/details/streetartgraffit0000lewi_d4m3</a>, p. 31.</span><a href="#note-12" class="back-link">↩</a></li>
+
+    <li id="ref-13"><span class="ref-num">13</span><span>Cooper, M. and Chalfant, H. (1996) <em>Subway art</em>. Internet Archive. <a href="http://archive.org/details/subwayart00coop" target="_blank">http://archive.org/details/subwayart00coop</a>, pp. 14–15.</span><a href="#note-13" class="back-link">↩</a></li>
+
+    <li id="ref-14"><span class="ref-num">14</span><span>BALLCLASH (2025) 'Remember when young teams used to do the big serif "Y"s in their menshys/graffiti?', <em>r/glasgow</em>. <a href="https://www.reddit.com/r/glasgow/comments/1mvjerj/remember_when_young_teams_used_to_do_the_big/" target="_blank">https://www.reddit.com/r/glasgow/…</a></span><a href="#note-14" class="back-link">↩</a></li>
+
+    <li id="ref-15"><span class="ref-num">15</span><span>Macdonald, N. (2002) <em>The graffiti subculture: youth, masculinity, and identity in London and New York</em>. New York: Palgrave Macmillan. <a href="http://archive.org/details/graffitisubcultu0000macd" target="_blank">http://archive.org/details/graffitisubcultu0000macd</a>, p. 105.</span><a href="#note-15" class="back-link">↩</a></li>
+
+    <li id="ref-16"><span class="ref-num">16</span><span>Lewisohn, C. (2008), p. 48. Op. cit.</span><a href="#note-16" class="back-link">↩</a></li>
+
+    <li id="ref-17"><span class="ref-num">17</span><span>Ferrell, J. (2021) <em>Crimes of Style: Urban Graffiti and the Politics of Criminality</em>. London: Routledge. <a href="https://doi.org/10.4324/9781003160731" target="_blank">https://doi.org/10.4324/9781003160731</a>, p. 8.</span><a href="#note-17" class="back-link">↩</a></li>
+
+    <li id="ref-18"><span class="ref-num">18</span><span>Ferrell, J. (2021), p. 83. Op. cit.</span><a href="#note-18" class="back-link">↩</a></li>
+
+    <li id="ref-19"><span class="ref-num">19</span><span>Macdonald, N. (2002), p. 84. Op. cit.</span><a href="#note-19" class="back-link">↩</a></li>
+
+    <li id="ref-20"><span class="ref-num">20</span><span>Macdonald, N. (2002), p. 80. Op. cit.</span><a href="#note-20" class="back-link">↩</a></li>
+
+    <li id="ref-21"><span class="ref-num">21</span><span>Ferrell, J. (2021), pp. 76–83. Op. cit.</span><a href="#note-21" class="back-link">↩</a></li>
+
+    <li id="ref-22"><span class="ref-num">22</span><span>Ferrell, J. (2021), p. 89. Op. cit.</span><a href="#note-22" class="back-link">↩</a></li>
+
+    <li id="ref-23"><span class="ref-num">23</span><span>Ferrell, J. (2021), p. 90. Op. cit.</span><a href="#note-23" class="back-link">↩</a></li>
+
+    <li id="ref-24"><span class="ref-num">24</span><span>Ferrell, J. (2021), p. 92. Op. cit.</span><a href="#note-24" class="back-link">↩</a></li>
+
+    <li id="ref-25"><span class="ref-num">25</span><span>Ferrell, J. (2021), p. 70. Op. cit.</span><a href="#note-25" class="back-link">↩</a></li>
+
+    <li id="ref-26"><span class="ref-num">26</span><span>Pollock, L. (2026) 'Much-loved Glasgow mural landmark quietly removed after 8 years', <em>The National</em>. <a href="https://www.thenational.scot/news/25808512.sadness-much-loved-scottish-city-mural-disappears/" target="_blank">https://www.thenational.scot/…</a></span><a href="#note-26" class="back-link">↩</a></li>
+
+    <li id="ref-27"><span class="ref-num">27</span><span>Glasgow City Council (no date) 'City Centre Mural Trail'. <a href="https://glasgow.gov.uk/article/1837/City-Centre-Mural-Trail" target="_blank">https://glasgow.gov.uk/article/1837/City-Centre-Mural-Trail</a></span><a href="#note-27" class="back-link">↩</a></li>
+
+    <li id="ref-28"><span class="ref-num">28</span><span>crowcanyonjournal (2016) 'The Street Art of Glasgow', <em>Crow Canyon Journal</em>, 11 June. <a href="https://crowcanyonjournal.wordpress.com/2016/06/11/the-street-art-of-glasgow/" target="_blank">https://crowcanyonjournal.wordpress.com/…</a></span><a href="#note-28" class="back-link">↩</a></li>
+
+    <li id="ref-29"><span class="ref-num">29</span><span>Pollock, L. (2026). Op. cit.</span><a href="#note-29" class="back-link">↩</a></li>
+
+    <li id="ref-30"><span class="ref-num">30</span><span>Jenkins, C. (2020) 'Glasgow's secret shame as council spent almost £650k removing graffiti', <em>Glasgow Live</em>. <a href="https://www.glasgowlive.co.uk/news/glasgow-news/glasgow-city-council-graffiti-removal-19111825" target="_blank">https://www.glasgowlive.co.uk/…</a></span><a href="#note-30" class="back-link">↩</a></li>
+
+    <li id="ref-31"><span class="ref-num">31</span><span>The Splash Glasgow (2026) 'EXCLUSIVE: Residents Question Impact of Legal Graffiti Wall Near Cowcaddens Underground Amid Vandalism Concerns', 20 April. <a href="https://theglasgowsplash.substack.com/p/exclusive-residents-question-impact" target="_blank">https://theglasgowsplash.substack.com/…</a></span><a href="#note-31" class="back-link">↩</a></li>
+
+    <li id="ref-32"><span class="ref-num">32</span><span>Ashenden, R. (2026) 'Glasgow, Community, and The AI Mural No One Asked For', <em>The Skinny</em>. <a href="https://www.theskinny.co.uk/art/features/glasgow-ai-mural-no-one-asked-for" target="_blank">https://www.theskinny.co.uk/…</a></span><a href="#note-32" class="back-link">↩</a></li>
+
+    <li id="ref-33"><span class="ref-num">33</span><span>Pollock, L. (2026) 'Plan for massive AI-generated mural in Glasgow given green light', <em>The National</em>. <a href="https://www.thenational.scot/news/25780679.plan-ai-generated-glasgow-mural-given-green-light/" target="_blank">https://www.thenational.scot/…</a></span><a href="#note-33" class="back-link">↩</a></li>
+
+    <li id="ref-34"><span class="ref-num">34</span><span>Wheaton, O. (2014) 'Clutha helicopter crash victims remembered in church service', <em>Metro</em>, 29 November. <a href="https://metro.co.uk/2014/11/29/memorial-service-to-be-held-for-victims-one-year-after-clutha-helicopter-crash-4967071/" target="_blank">https://metro.co.uk/…</a></span><a href="#note-34" class="back-link">↩</a></li>
+
+    <li id="ref-35"><span class="ref-num">35</span><span>Galina Walls (2018) 'Confronting the ephemeral – Glasgow Clutha Bar mural', <em>Urban photography by Galina Walls</em>, 7 August. <a href="https://galinawallsphotography.co.uk/glasgow-clutha-bar-mural/" target="_blank">https://galinawallsphotography.co.uk/…</a></span><a href="#note-35" class="back-link">↩</a></li>
+
+    <li id="ref-36"><span class="ref-num">36</span><span>The Clutha Trust (no date) 'About Us'. <a href="https://www.cluthatrust.org/about-us/" target="_blank">https://www.cluthatrust.org/about-us/</a></span><a href="#note-36" class="back-link">↩</a></li>
+
+    <li id="ref-37"><span class="ref-num">37</span><span>Minors, G. (2026) 'Street art and youth advocacy converge at SWG3's 2026 Yardworks Festival', <em>Glasgow Guardian</em>, 7 April. <a href="https://glasgowguardian.co.uk/2026/04/07/street-art-and-youth-advocacy-converge-at-swg3s-2026-yardworks-festival/" target="_blank">https://glasgowguardian.co.uk/…</a></span><a href="#note-37" class="back-link">↩</a></li>
+
+    <li id="ref-38"><span class="ref-num">38</span><span>Yardworks Glasgow (2026) Instagram post. <a href="https://www.instagram.com/yardworksglasgow/p/DTYdinlCLd3/" target="_blank">https://www.instagram.com/yardworksglasgow/…</a></span><a href="#note-38" class="back-link">↩</a></li>
+
+    <li id="ref-39"><span class="ref-num">39</span><span>'Police investigate hate crime after Glasgow mosque vandalised' (2025) <em>BBC News</em>. <a href="https://www.bbc.co.uk/news/articles/cdx4y2xkl7ro" target="_blank">https://www.bbc.co.uk/news/articles/cdx4y2xkl7ro</a></span><a href="#note-39" class="back-link">↩</a></li>
+
+    <li id="ref-40"><span class="ref-num">40</span><span>Paterson, S. (2026) 'Racist abuse and vandalism at football stadium after match sparks investigation', <em>Glasgow Times</em>. <a href="https://www.glasgowtimes.co.uk/news/26005154.police-probing-racist-graffiti-firhill-cup-final/" target="_blank">https://www.glasgowtimes.co.uk/…</a></span><a href="#note-40" class="back-link">↩</a></li>
+
+    <li id="ref-41"><span class="ref-num">41</span><span>Vaswani, A. (2022) 'Racist Graffiti on UofG campus', <em>Glasgow Guardian</em>, 18 October. <a href="https://glasgowguardian.co.uk/2022/10/18/racist-graffiti-on-uofg-campus/" target="_blank">https://glasgowguardian.co.uk/…</a></span><a href="#note-41" class="back-link">↩</a></li>
+
+    <li id="ref-42"><span class="ref-num">42</span><span>Armstrong, R. (2025) 'The great Garnethill graffiti war', <em>The Bell</em>. <a href="https://www.glasgowbell.co.uk/glasgow-graffiti-mural-garnethill-yardworks-street-art/" target="_blank">https://www.glasgowbell.co.uk/…</a></span><a href="#note-42" class="back-link">↩</a></li>
+
+    <li id="ref-43"><span class="ref-num">43</span><span>Dick, S. (2024) 'The street art murals putting Glasgow on the tourism map', <em>The Herald</em>. <a href="https://www.heraldscotland.com/life_style/24742575.street-art-murals-putting-glasgow-tourism-map/" target="_blank">https://www.heraldscotland.com/…</a></span><a href="#note-43" class="back-link">↩</a></li>
+
+    <li id="ref-44"><span class="ref-num">44</span><span>Dalziel, M. (2017) 'Glasgow's City Centre Mural Trail is now award-winning', <em>Glasgow Live</em>. <a href="http://www.glasgowlive.co.uk/news/glasgow-news/glasgows-city-centre-mural-trail-12792533" target="_blank">http://www.glasgowlive.co.uk/…</a></span><a href="#note-44" class="back-link">↩</a></li>
+
+    <li id="ref-45"><span class="ref-num">45</span><span>Jenkins, C. (2020) 'Glasgow's award-winning Mural Trail recognised as top attraction', <em>Glasgow Live</em>. <a href="https://www.glasgowlive.co.uk/news/glasgow-news/glasgows-award-winning-mural-trail-18843954" target="_blank">https://www.glasgowlive.co.uk/…</a></span><a href="#note-45" class="back-link">↩</a></li>
+
+    <li id="ref-46"><span class="ref-num">46</span><span>Garton-Crosbie, A. (2022) 'Campaigner believes legal graffiti walls "could break stigma"', <em>The National</em>. <a href="https://www.thenational.scot/news/22632310.colour-ways-campaigner-believes-legal-graffiti-walls-could-break-stigma/" target="_blank">https://www.thenational.scot/…</a></span><a href="#note-46" class="back-link">↩</a></li>
+
+  </ol>
+</section>
+
 </body>
 </html>
